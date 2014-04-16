@@ -1,0 +1,2 @@
+rails-assets-for-upyun
+======================
