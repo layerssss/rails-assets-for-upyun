@@ -1,7 +1,7 @@
 class RailsAssetsForUpyun
   def self.publish(bucket, username, password, bucket_path="/", localpath='public', upyun_ap="http://v0.api.upyun.com")
     Dir[File.join localpath, "**", "*"].select{|f| File.file? f }.each do |file|
-      url = "/#{bucket}#{bucket_path}#{file[localpath.to_s.size + 1 .. -1]}"
+      url = URI.encode "/#{bucket}#{bucket_path}#{file[localpath.to_s.size + 1 .. -1]}"
       date = Time.now.httpdate
       size = RestClient.head("#{upyun_ap}#{url}", {\
           Authorization: "UpYun #{username}:#{signature 'HEAD', url, date, 0, password}", 
