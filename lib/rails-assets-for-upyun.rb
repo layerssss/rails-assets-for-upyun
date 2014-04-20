@@ -8,7 +8,7 @@ class RailsAssetsForUpyun
           Date: date}) do |response, request, result, &block|
         case response.code 
         when 200
-          response.headers[:x_upyun_file_size]
+          response.headers[:x_upyun_file_size].to_i
         when 404
           nil
         end
