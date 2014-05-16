@@ -4,7 +4,7 @@ rails-assets-for-upyun
 
 ## 用法
 
-1. 在 `Gemfile` 里引用我： `gem 'rails-assets-for-upyun', '>= 0.0.3'`
+1. 在 `Gemfile` 里引用我： `gem 'rails-assets-for-upyun', '>= 0.0.4'`
 2. 首先设置好在生产环境中调用 UpYun 上的资源
 
   ```

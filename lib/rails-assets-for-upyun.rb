@@ -15,7 +15,7 @@ class RailsAssetsForUpyun
       end
       unless size == (file_size = File.size file)
         file_content = File.read(file)
-        p "uploading #{file}.."
+        puts "uploading #{file}.."
         RestClient.put("#{upyun_ap}#{url}",  file_content,{\
           Authorization: "UpYun #{username}:#{signature 'PUT', url, date, file_size, password}", 
           Date: date,
