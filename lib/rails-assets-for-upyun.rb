@@ -1,6 +1,7 @@
 class RailsAssetsForUpyun
   def self.publish(bucket, username, password, bucket_path="/", localpath='public', upyun_ap="http://v0.api.upyun.com")
-    Dir[File.join localpath, "**", "*"].select{|f| File.file? f }.each do |file|
+    # http://stackoverflow.com/questions/357754/can-i-traverse-symlinked-directories-in-ruby-with-a-glob
+    Dir[File.join localpath, "**{,/*/**}/*"].select{|f| File.file? f}.each do |file|
       url = URI.encode "/#{bucket}#{bucket_path}#{file[localpath.to_s.size + 1 .. -1]}"
       date = Time.now.httpdate
       size = RestClient.head("#{upyun_ap}#{url}", {\
