@@ -14,7 +14,9 @@ class RailsAssetsForUpyun
           nil
         end
       end
-      unless size == (file_size = File.size file)
+      if size == (file_size = File.size file)
+        puts "skipping #{file}.."
+      else
         file_content = File.read(file)
         puts "uploading #{file}.."
         RestClient.put("#{upyun_ap}#{url}",  file_content,{\
