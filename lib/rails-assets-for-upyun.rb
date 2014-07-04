@@ -1,3 +1,5 @@
+require 'rest-client'
+require 'uri'
 class RailsAssetsForUpyun
   def self.publish(bucket, username, password, bucket_path="/", localpath='public', upyun_ap="http://v0.api.upyun.com")
     # http://stackoverflow.com/questions/357754/can-i-traverse-symlinked-directories-in-ruby-with-a-glob
